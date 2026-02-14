@@ -1,5 +1,3 @@
-// services/auth.js
-
 const API_URL = "http://localhost:1337";
 
 export async function login(email, password) {

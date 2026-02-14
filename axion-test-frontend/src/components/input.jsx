@@ -26,7 +26,7 @@ function Input({
         />
       </div>
     </div>
-  );
+  )
 }
 
 export default Input;

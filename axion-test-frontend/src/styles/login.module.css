@@ -80,7 +80,6 @@
   position: absolute;
   right: 20px; 
   top: 40%;
-  /* transform: translateY(-50%); */
   height: 15px;
   resize: contain;
   pointer-events: none;

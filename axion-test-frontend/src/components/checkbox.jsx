@@ -16,7 +16,7 @@ function Checkbox({ checked, onChange, label }) {
         {label}
       </label>
     </div>
-  );
+  )
 }
 
 export default Checkbox;
