@@ -1,5 +1,3 @@
-// services/people.js
-
 const API_URL = "http://localhost:1337/people";
 const BASE_URL = "http://localhost:1337";
 

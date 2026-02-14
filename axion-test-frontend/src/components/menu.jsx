@@ -23,7 +23,7 @@ function Menu({ category, setCategory }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 export default Menu;

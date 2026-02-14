@@ -1,4 +1,3 @@
-//card.jsx
 import styles from "../styles/card.module.css";
 
 function Card({name, link}) {

@@ -1,5 +1,3 @@
-// services/places.js
-
 const API_URL = "http://localhost:1337/places";
 const BASE_URL = "http://localhost:1337";
 

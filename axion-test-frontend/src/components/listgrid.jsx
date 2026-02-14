@@ -19,7 +19,7 @@ function ListGrid({ items }) {
         />
       ))}
     </div>
-  );
+  )
 }
 
 export default ListGrid;

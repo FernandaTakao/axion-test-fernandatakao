@@ -16,7 +16,6 @@ function Lists() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Verifica se o usuário está logado
   useEffect(() => {
     if (!getToken()) {
       navigate("/login");

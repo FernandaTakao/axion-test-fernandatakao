@@ -10,6 +10,7 @@
   background-color: white;
   padding-left: 17.5vw;
   padding-right: 17.5vw;
+  /*para evitar que o menu seja coberto por outros elementos*/
   z-index: 2;
 }
 .optionsContainer {
