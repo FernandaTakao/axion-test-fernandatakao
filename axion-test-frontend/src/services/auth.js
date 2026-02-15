@@ -15,7 +15,7 @@ export async function login(email, password) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || "Erro ao autenticar");
+    throw new Error("Erro ao autenticar! Tente novamente.");
   }
 
   localStorage.setItem("token", data.jwt);

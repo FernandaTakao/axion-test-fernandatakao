@@ -1,3 +1,5 @@
+//lists.jsx
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/lists.module.css";
@@ -15,6 +17,7 @@ function Lists() {
   const [category, setCategory] = useState("foods");
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sortOrder, setSortOrder] = useState("asc"); // ordem da lista
 
   useEffect(() => {
     if (!getToken()) {
@@ -22,7 +25,7 @@ function Lists() {
     }
   }, [navigate]);
 
-  // Buscar dados sempre que mudar a categoria
+  // buscar dados sempre que mudar a categoria
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
@@ -56,18 +59,38 @@ function Lists() {
     fetchData();
   }, [category, navigate]);
 
+  function sortItems(list) {
+    return [...list].sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      if (nameA < nameB) return sortOrder === "asc" ? -1 : 1;
+      if (nameA > nameB) return sortOrder === "asc" ? 1 : -1;
+      return 0;
+    });
+  }
+
   return (
     <div className={styles.backContainer}>
       <img src={arc} alt="" className={stylesLogin.arc} />
       <Menu category={category} setCategory={setCategory} />
 
       <div className={styles.paddingContainer}>
-        <span className={styles.title}>LIST OF {category.toUpperCase()}</span>
+        <div className={styles.titleButtonContainer}>
+          <span className={styles.title}>LIST OF {category.toUpperCase()}</span>
+          <button
+            className={styles.button}
+            onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+          >
+            {sortOrder === "asc" ? "a–z ▲" : "z–a ▼"}
+          </button>
+        </div>
+
         <div className={styles.line}></div>
+
         {loading ? (
           <span>Carregando...</span>
         ) : (
-          <ListGrid items={items} />
+          <ListGrid items={sortItems(items)} />
         )}
       </div>
     </div>
